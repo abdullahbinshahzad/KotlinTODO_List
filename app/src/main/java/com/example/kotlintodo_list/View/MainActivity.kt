@@ -1,4 +1,4 @@
-package com.example.kotlintodo_list
+package com.example.kotlintodo_list.View
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -14,8 +14,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
             binding.addButton.setOnClickListener {
-                val intent = Intent(this, AddnoteActivity::class.java)
+                val intent = Intent(this, AddtaskActivity::class.java)
                 startActivity(intent)
             }
+
+
     }
 }

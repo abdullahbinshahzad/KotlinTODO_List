@@ -13,10 +13,13 @@
         android:theme="@style/Theme.KotlinTODO_List"
         tools:targetApi="31">
         <activity
-            android:name=".AddnoteActivity"
+            android:name=".View.UpdatetaskActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".View.AddtaskActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
