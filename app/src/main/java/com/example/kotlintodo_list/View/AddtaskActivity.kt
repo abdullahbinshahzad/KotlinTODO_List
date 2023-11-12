@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.kotlintodo_list.Model.data.Task
 import com.example.kotlintodo_list.Model.data.TaskDatabase
 import com.example.kotlintodo_list.Model.data.TaskRepository
-import com.example.kotlintodo_list.Model.data.TaskViewModel
+import com.example.kotlintodo_list.ViewModel.TaskViewModel
 import com.example.kotlintodo_list.databinding.ActivityAddtaskBinding
 
 class AddtaskActivity : AppCompatActivity() {
@@ -26,28 +26,26 @@ class AddtaskActivity : AppCompatActivity() {
         binding.doneButton.setOnClickListener {
             insertDataToDatabase()
         }
-
     }
 
     private fun insertDataToDatabase() {
         val task = binding.taskEditText.text.toString()
         val description = binding.descriptionEditText.text.toString()
 
-        if(inputCheck(task, description)){
+        if (inputCheck(task, description)) {
             //create task object
-            val task = Task(0,task,description)
+            val task = Task(0, task, description)
             //add data to database
             taskViewModel.addTask(task)
-            Toast.makeText(this,"DONE" ,Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "DONE", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-        }
-        else{
-            Toast.makeText(this,"SORRY" ,Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "PLZ COMPLETE YOUR CREDENTIALS", Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun inputCheck(task: String,description: String):Boolean{
-        return !(TextUtils.isEmpty(task) && TextUtils.isEmpty(description))
+    private fun inputCheck(task: String, description: String): Boolean {
+        return !TextUtils.isEmpty(task) && !TextUtils.isEmpty(description)
     }
 }
