@@ -30,10 +30,6 @@ class TaskAdapter: RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
         holder.binding.taskTextView.text = currentItem.taskName
         holder.binding.descriptionTextView.text = currentItem.task_Description
 
-        holder.binding.template.setOnClickListener {
-            val intent = Intent(this, UpdatetaskActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     fun setData(task: List<Task>){
