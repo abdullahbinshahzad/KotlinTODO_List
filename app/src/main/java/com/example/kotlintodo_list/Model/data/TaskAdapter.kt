@@ -1,14 +1,8 @@
 package com.example.kotlintodo_list.Model.data
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlintodo_list.R
-import com.example.kotlintodo_list.View.AddtaskActivity
-import com.example.kotlintodo_list.View.MainActivity
-import com.example.kotlintodo_list.View.UpdatetaskActivity
 import com.example.kotlintodo_list.databinding.TaskCardTemplateBinding
 
 class TaskAdapter: RecyclerView.Adapter<TaskAdapter.ViewHolder>() {

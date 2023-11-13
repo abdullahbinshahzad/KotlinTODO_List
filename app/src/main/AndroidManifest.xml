@@ -13,10 +13,10 @@
         android:theme="@style/Theme.KotlinTODO_List"
         tools:targetApi="31">
         <activity
-            android:name=".View.UpdatetaskActivity"
+            android:name=".View.UpdatetaskFragment"
             android:exported="false" />
         <activity
-            android:name=".View.AddtaskActivity"
+            android:name=".View.AddtaskFragment"
             android:exported="false" />
         <activity
             android:name=".View.MainActivity"
