@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlintodo_list.Model.data.TaskAdapter
 import com.example.kotlintodo_list.R
@@ -38,7 +39,7 @@ class MainFragment : Fragment() {
         })
 
         binding.addButton.setOnClickListener {
-
+            findNavController().navigate(R.id.action_mainFragment_to_addtaskFragment)
         }
     }
 }

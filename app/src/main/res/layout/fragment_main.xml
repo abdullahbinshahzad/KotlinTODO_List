@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="10dp"
+        android:focusable="true"
         app:tint="@color/text_color"
         android:backgroundTint="@color/grey"
         app:srcCompat="@drawable/baseline_add_24" />
