@@ -1,14 +1,12 @@
-package com.example.kotlintodo_list.View
+package com.example.kotlintodo_list.View.fragments
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.kotlintodo_list.Model.data.Task
@@ -16,25 +14,23 @@ import com.example.kotlintodo_list.Model.data.TaskDatabase
 import com.example.kotlintodo_list.Model.data.TaskRepository
 import com.example.kotlintodo_list.R
 import com.example.kotlintodo_list.ViewModel.TaskViewModel
-import com.example.kotlintodo_list.databinding.FragmentAddtaskBinding
+import com.example.kotlintodo_list.databinding.FragmentAddTaskBinding
 
-class AddtaskFragment : Fragment() {
+class AddTaskFragment : Fragment() {
 
     private lateinit var taskViewModel: TaskViewModel
-    private lateinit var binding: FragmentAddtaskBinding
-
+    private lateinit var binding: FragmentAddTaskBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(R.layout.fragment_addtask, container, false)
-
         val repository = TaskRepository(TaskDatabase.getDatabase(requireContext()).taskDao())
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
+        binding = FragmentAddTaskBinding.inflate(inflater, container, false)
         binding.doneButton.setOnClickListener {
             insertDataToDatabase()
         }
+        return binding.root
     }
 
     private fun insertDataToDatabase() {
@@ -47,7 +43,7 @@ class AddtaskFragment : Fragment() {
             //add data to database
             taskViewModel.addTask(task)
             Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
-            findNavController().navigate(R.id.action_addtaskFragment_to_mainFragment)
+            findNavController().navigate(R.id.action_addTaskFragment_to_mainFragment)
         } else {
             Toast.makeText(requireContext(), "PLZ COMPLETE YOUR CREDENTIALS", Toast.LENGTH_SHORT).show()
         }

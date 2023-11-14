@@ -7,32 +7,35 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.kotlintodo_list.View.MainFragment"
+        android:name="com.example.kotlintodo_list.View.fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_addtaskFragment"
-            app:destination="@id/addtaskFragment" />
+            android:id="@+id/action_mainFragment_to_addTaskFragment"
+            app:destination="@id/addTaskFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_updatetaskFragment"
-            app:destination="@id/updatetaskFragment" />
+            android:id="@+id/action_mainFragment_to_updateTaskFragment"
+            app:destination="@id/updateTaskFragment" />
     </fragment>
     <fragment
-        android:id="@+id/addtaskFragment"
-        android:name="com.example.kotlintodo_list.View.AddtaskFragment"
-        android:label="fragment_addtask"
-        tools:layout="@layout/fragment_addtask" >
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.kotlintodo_list.View.fragments.AddTaskFragment"
+        android:label="fragment_add_task"
+        tools:layout="@layout/fragment_add_task" >
         <action
-            android:id="@+id/action_addtaskFragment_to_mainFragment"
+            android:id="@+id/action_addTaskFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
     <fragment
-        android:id="@+id/updatetaskFragment"
-        android:name="com.example.kotlintodo_list.View.UpdatetaskFragment"
-        android:label="fragment_updatetask"
-        tools:layout="@layout/fragment_updatetask" >
+        android:id="@+id/updateTaskFragment"
+        android:name="com.example.kotlintodo_list.View.fragments.UpdateTaskFragment"
+        android:label="fragment_update_task"
+        tools:layout="@layout/fragment_update_task" >
         <action
-            android:id="@+id/action_updatetaskFragment_to_mainFragment"
+            android:id="@+id/action_updateTaskFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="currentTask"
+            app:argType="com.example.kotlintodo_list.Model.data.Task" />
     </fragment>
 </navigation>

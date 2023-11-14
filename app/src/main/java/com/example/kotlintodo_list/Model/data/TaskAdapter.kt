@@ -3,9 +3,11 @@ package com.example.kotlintodo_list.Model.data
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kotlintodo_list.R
+import com.example.kotlintodo_list.View.fragments.MainFragmentDirections
 import com.example.kotlintodo_list.databinding.TaskCardTemplateBinding
 
-class TaskAdapter: RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+class TaskAdapter(val onclick : (Int) -> Unit): RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
      private var taskList = emptyList<Task>()
     class ViewHolder(val binding: TaskCardTemplateBinding): RecyclerView.ViewHolder(binding.root){
     }
@@ -23,6 +25,12 @@ class TaskAdapter: RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
         val currentItem = taskList[position]
         holder.binding.taskTextView.text = currentItem.taskName
         holder.binding.descriptionTextView.text = currentItem.task_Description
+
+        holder.binding.editImageView.setOnClickListener {
+            onclick.invoke(position)
+//            val action = MainFragmentDirections.actionMainFragmentToUpdateTaskFragment(currentItem)
+//            findNavController().navigate(R.id.action_mainFragment_to_addTaskFragment)
+        }
 
     }
 
