@@ -24,7 +24,6 @@ class AddTaskFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val repository = TaskRepository(TaskDatabase.getDatabase(requireContext()).taskDao())
         taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         binding = FragmentAddTaskBinding.inflate(inflater, container, false)
         binding.doneButton.setOnClickListener {

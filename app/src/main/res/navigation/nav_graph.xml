@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
@@ -16,6 +17,9 @@
         <action
             android:id="@+id/action_mainFragment_to_updateTaskFragment"
             app:destination="@id/updateTaskFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_deleteTaskFragment"
+            app:destination="@id/deleteTaskFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTaskFragment"
@@ -34,8 +38,17 @@
         <action
             android:id="@+id/action_updateTaskFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
-        <argument
-            android:name="currentTask"
-            app:argType="com.example.kotlintodo_list.Model.data.Task" />
+<!--        <argument-->
+<!--            android:name="currentItem"-->
+<!--            app:argType="com.example.kotlintodo_list.Model.data.Task" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/deleteTaskFragment"
+        android:name="com.example.kotlintodo_list.DeleteTaskFragment"
+        android:label="fragment_delete_task"
+        tools:layout="@layout/fragment_delete_task" >
+        <action
+            android:id="@+id/action_deleteTaskFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
