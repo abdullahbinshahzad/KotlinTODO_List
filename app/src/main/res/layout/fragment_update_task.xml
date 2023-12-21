@@ -7,52 +7,54 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.UpdateTaskFragment">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/UpdateHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audio_wide"
+        android:text="@string/update_task"
+        android:textColor="@color/text_color"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/UpdateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/UpdateHeading"
+        android:layout_alignParentEnd="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_done_24" />
+
+    <EditText
+        android:id="@+id/UpdateTask_EditText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/layout_padding">
-        <TextView
-            android:id="@+id/UpdateHeading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/audiowide"
-            android:text="Update Task"
-            android:textColor="@color/text_color"
-            android:textSize="20sp"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/UpdateHeading"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/grey"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UpdateHeading" />
 
-        <ImageView
-            android:id="@+id/UpdateButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/UpdateHeading"
-            app:srcCompat="@drawable/baseline_done_24" />
-
-        <EditText
-            android:id="@+id/Updatetask_EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/UpdateHeading"
-            android:textColor="@color/text_color"
-            android:textColorHint="@color/grey"
-            android:textSize="22sp"
-            android:maxLines="1"
-            android:padding="10dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/border"
-            />
-        <EditText
-            android:id="@+id/Updatedescription_EditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/Updatetask_EditText"
-            android:gravity="top"
-            android:textColor="@color/text_color"
-            android:textColorHint="@color/grey"
-            android:textSize="20sp"
-            android:padding="10dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/border"/>
-    </RelativeLayout>
+    <EditText
+        android:id="@+id/UpdateDescription_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/UpdateTask_EditText"
+        android:background="@drawable/border"
+        android:padding="10dp"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/grey"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UpdateTask_EditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

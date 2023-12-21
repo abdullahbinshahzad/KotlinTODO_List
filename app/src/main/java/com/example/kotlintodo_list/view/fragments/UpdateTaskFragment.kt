@@ -38,18 +38,9 @@ class UpdateTaskFragment : Fragment() {
         Log.i("taskID", "onViewCreatedID: $taskID")
         taskName= arguments?.getString("title")
         taskDescription = arguments?.getString("description")
-        if (taskName.isNullOrBlank()) {
-            binding.UpdatetaskEditText.text = Editable.Factory.getInstance().newEditable("TASK NAME IS NULL OR EMPTY")
-            binding.UpdatedescriptionEditText.text=Editable.Factory.getInstance().newEditable(taskDescription)
-        }
-        else if (taskDescription.isNullOrBlank()){
-            binding.UpdatetaskEditText.text= Editable.Factory.getInstance().newEditable(taskName)
-            binding.UpdatedescriptionEditText.text= Editable.Factory.getInstance().newEditable("TASK DESCRIPTION IS NULL OR EMPTY")
-        }
-        else {
-            binding.UpdatetaskEditText.text= Editable.Factory.getInstance().newEditable(taskName)
-            binding.UpdatedescriptionEditText.text=Editable.Factory.getInstance().newEditable(taskDescription)
-        }
+            binding.UpdateTaskEditText.text= Editable.Factory.getInstance().newEditable(taskName)
+            binding.UpdateDescriptionEditText.text=Editable.Factory.getInstance().newEditable(taskDescription)
+
 
         Log.i("taskName", "onViewCreated: $taskName")
         Log.i("taskDescription", "onViewCreated: $taskDescription")
@@ -62,10 +53,10 @@ class UpdateTaskFragment : Fragment() {
     }
 
     private fun updateDataToDatabase() {
-        val task = binding.UpdatetaskEditText.text.toString()
-        val description = binding.UpdatedescriptionEditText.text.toString()
+        val task = binding.UpdateTaskEditText.text.toString()
+        val description = binding.UpdateDescriptionEditText.text.toString()
 
-        Log.i("taskName", "check id: $id")
+        Log.i("taskId", "check id: $id")
         Log.i("taskName", "onViewCreated: $task")
         if (inputCheck(task, description)) {
             //create task object

@@ -3,4 +3,9 @@
     <string name="heading_text">Todo List</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_task_description">Enter Task Description</string>
+    <string name="enter_task">Enter Task</string>
+    <string name="welcome">WELCOME</string>
+    <string name="add_floating_button_description">Add Floating Button</string>
+    <string name="update_task">Update Task</string>
 </resources>

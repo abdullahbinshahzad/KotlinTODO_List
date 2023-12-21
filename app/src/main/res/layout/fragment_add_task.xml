@@ -7,55 +7,54 @@
     android:layout_height="match_parent"
     tools:context=".view.fragments.AddTaskFragment">
 
-    <RelativeLayout
+    <TextView
+        android:id="@+id/Heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audio_wide"
+        android:text="@string/heading_text"
+        android:textColor="@color/text_color"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/Heading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_done_24" />
+
+    <EditText
+        android:id="@+id/task_EditText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/layout_padding">
-        <TextView
-            android:id="@+id/Heading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/audiowide"
-            android:text="@string/heading_text"
-            android:textColor="@color/text_color"
-            android:textSize="20sp"
-        />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Heading"
+        android:background="@drawable/border"
+        android:hint="@string/enter_task"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/grey"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Heading" />
 
-        <ImageView
-            android:id="@+id/doneButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@id/Heading"
-            app:srcCompat="@drawable/baseline_done_24" />
-
-        <EditText
-            android:id="@+id/task_EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/Heading"
-            android:hint="Enter Task"
-            android:textColor="@color/text_color"
-            android:textColorHint="@color/grey"
-            android:textSize="22sp"
-            android:singleLine="true"
-            android:padding="10dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/border"
-            />
-        <EditText
-            android:id="@+id/description_EditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/task_EditText"
-            android:hint="Enter Task Description "
-            android:gravity="top"
-            android:textColor="@color/text_color"
-            android:textColorHint="@color/grey"
-            android:textSize="20sp"
-            android:padding="10dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/border"/>
-    </RelativeLayout>
-
+    <EditText
+        android:id="@+id/description_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/task_EditText"
+        android:background="@drawable/border"
+        android:hint="@string/enter_task_description"
+        android:padding="10dp"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/grey"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/task_EditText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
