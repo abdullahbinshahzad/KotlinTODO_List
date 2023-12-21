@@ -1,10 +1,7 @@
-package com.example.kotlintodo_list.View
+package com.example.kotlintodo_list.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.kotlintodo_list.R
 import com.example.kotlintodo_list.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

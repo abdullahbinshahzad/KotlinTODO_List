@@ -1,16 +1,16 @@
-package com.example.kotlintodo_list.ViewModel
+package com.example.kotlintodo_list.viewmodel
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.kotlintodo_list.Model.data.Task
-import com.example.kotlintodo_list.Model.data.TaskDatabase
-import com.example.kotlintodo_list.Model.data.TaskRepository
+import com.example.kotlintodo_list.model.Task
+import com.example.kotlintodo_list.model.TaskDatabase
+import com.example.kotlintodo_list.model.TaskRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class TaskViewModel(application: Application): AndroidViewModel(application) {
+class TaskViewModel(application: Application): ViewModel() {
 
     val readAllData: LiveData<List<Task>>
     private val repository: TaskRepository

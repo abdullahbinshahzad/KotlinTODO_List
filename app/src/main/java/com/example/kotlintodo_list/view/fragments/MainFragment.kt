@@ -1,4 +1,4 @@
-package com.example.kotlintodo_list.View.fragments
+package com.example.kotlintodo_list.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,11 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlintodo_list.ItemClickListener
-import com.example.kotlintodo_list.Model.data.Task
-import com.example.kotlintodo_list.Model.data.TaskAdapter
 import com.example.kotlintodo_list.R
-import com.example.kotlintodo_list.ViewModel.TaskViewModel
+import com.example.kotlintodo_list.viewmodel.TaskViewModel
 import com.example.kotlintodo_list.databinding.FragmentMainBinding
+import com.example.kotlintodo_list.model.Task
+import com.example.kotlintodo_list.model.TaskAdapter
 
 class MainFragment : Fragment(),ItemClickListener {
 
@@ -23,24 +23,23 @@ class MainFragment : Fragment(),ItemClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
-
-        val adapter=TaskAdapter(this)
+        val adapter= TaskAdapter(this)
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
+        taskViewModel = ViewModelProvider(this)[TaskViewModel::class.java]
 
-        taskViewModel.readAllData.observe(viewLifecycleOwner, Observer {task ->
-            adapter.setData(task)
+        taskViewModel.readAllData.observe(viewLifecycleOwner, Observer { task ->
+            adapter.submitList(task)
         })
+
         binding.addButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_addTaskFragment)
         }
-
         return binding.root
     }
 
@@ -48,16 +47,11 @@ class MainFragment : Fragment(),ItemClickListener {
         val bundle=Bundle()
         bundle.putInt("id",task.id)
         bundle.putString("title",task.taskName)
-        bundle.putString("description",task.task_Description)
+        bundle.putString("description",task.taskDescription)
         findNavController().navigate(R.id.action_mainFragment_to_updateTaskFragment,bundle)
     }
 
     override fun onDeleteImageClick(task: Task) {
-        //val task = Task()
-        val bundle=Bundle()
-        bundle.putInt("id",task.id)
-        bundle.putString("title",task.taskName)
-        bundle.putString("description",task.task_Description)
-        findNavController().navigate(R.id.action_mainFragment_to_deleteTaskFragment,bundle)
+        taskViewModel.deleteTask(task)
     }
 }

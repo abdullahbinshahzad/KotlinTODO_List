@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.kotlintodo_list.View.fragments.MainFragment"
+        android:name="com.example.kotlintodo_list.view.fragments.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -17,13 +17,10 @@
         <action
             android:id="@+id/action_mainFragment_to_updateTaskFragment"
             app:destination="@id/updateTaskFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_deleteTaskFragment"
-            app:destination="@id/deleteTaskFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTaskFragment"
-        android:name="com.example.kotlintodo_list.View.fragments.AddTaskFragment"
+        android:name="com.example.kotlintodo_list.view.fragments.AddTaskFragment"
         android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" >
         <action
@@ -32,23 +29,11 @@
     </fragment>
     <fragment
         android:id="@+id/updateTaskFragment"
-        android:name="com.example.kotlintodo_list.View.fragments.UpdateTaskFragment"
+        android:name="com.example.kotlintodo_list.view.fragments.UpdateTaskFragment"
         android:label="fragment_update_task"
         tools:layout="@layout/fragment_update_task" >
         <action
             android:id="@+id/action_updateTaskFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-<!--        <argument-->
-<!--            android:name="currentItem"-->
-<!--            app:argType="com.example.kotlintodo_list.Model.data.Task" />-->
-    </fragment>
-    <fragment
-        android:id="@+id/deleteTaskFragment"
-        android:name="com.example.kotlintodo_list.DeleteTaskFragment"
-        android:label="fragment_delete_task"
-        tools:layout="@layout/fragment_delete_task" >
-        <action
-            android:id="@+id/action_deleteTaskFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

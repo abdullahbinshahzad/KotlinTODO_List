@@ -1,28 +1,22 @@
-package com.example.kotlintodo_list.View.fragments
+package com.example.kotlintodo_list.view.fragments
 
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
-import com.example.kotlintodo_list.Model.data.Task
 import com.example.kotlintodo_list.R
-import com.example.kotlintodo_list.ViewModel.TaskViewModel
+import com.example.kotlintodo_list.viewmodel.TaskViewModel
 import com.example.kotlintodo_list.databinding.FragmentUpdateTaskBinding
+import com.example.kotlintodo_list.model.Task
 
 class UpdateTaskFragment : Fragment() {
-
-//    private val args: UpdateTaskFragmentArgs by navArgs()
-
     private lateinit var taskViewModel: TaskViewModel
     private lateinit var binding: FragmentUpdateTaskBinding
     private var taskId:String?=null
@@ -34,19 +28,14 @@ class UpdateTaskFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentUpdateTaskBinding.inflate(inflater, container,false)
-        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
-
-//        Log.d("Arguments","value =${args.currentItem}")
-//        binding.UpdatetaskEditText.setText(args.currentItem?.taskName ?: "no task")
-//        binding.UpdatedescriptionEditText.setText(args.currentItem?.task_Description ?: "no description")
-//        Log.i("taskName", "onViewCreated: $taskName")
-//        Log.i("taskDescription", "onViewCreated: $taskDeascription")
-
+        taskViewModel = ViewModelProvider(this)[TaskViewModel::class.java]
 
         taskId= arguments?.getInt("id").toString()
+        Log.i("taskId", "onViewCreatedId: $taskId")
         taskID= taskId!!.toInt()
+        Log.i("taskID", "onViewCreatedID: $taskID")
         taskName= arguments?.getString("title")
         taskDescription = arguments?.getString("description")
         if (taskName.isNullOrBlank()) {
@@ -76,14 +65,15 @@ class UpdateTaskFragment : Fragment() {
         val task = binding.UpdatetaskEditText.text.toString()
         val description = binding.UpdatedescriptionEditText.text.toString()
 
+        Log.i("taskName", "check id: $id")
+        Log.i("taskName", "onViewCreated: $task")
         if (inputCheck(task, description)) {
             //create task object
-            val task = taskID?.let { Task(it, task, description) }
-            //add data to database
-            if (task != null) {
-                taskViewModel.addTask(task)
-            }
+            val task = Task(id, task, description)
+            //update data to database
+            taskViewModel.updateTask(task)
             Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
+            Log.i("taskName", "after toast: $task")
             findNavController().navigate(R.id.action_updateTaskFragment_to_mainFragment)
         }
     }

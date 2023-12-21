@@ -1,4 +1,4 @@
-package com.example.kotlintodo_list.Model.data
+package com.example.kotlintodo_list.model
 
 import android.os.Parcelable
 import androidx.room.Entity
@@ -7,9 +7,10 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "task_table")
-data class Task(
+data class
+Task(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val taskName: String,
-    val task_Description: String
+    val taskDescription: String
 ): Parcelable

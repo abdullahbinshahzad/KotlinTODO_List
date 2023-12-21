@@ -1,4 +1,4 @@
-package com.example.kotlintodo_list.View.fragments
+package com.example.kotlintodo_list.view.fragments
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -9,22 +9,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.kotlintodo_list.Model.data.Task
-import com.example.kotlintodo_list.Model.data.TaskDatabase
-import com.example.kotlintodo_list.Model.data.TaskRepository
 import com.example.kotlintodo_list.R
-import com.example.kotlintodo_list.ViewModel.TaskViewModel
+import com.example.kotlintodo_list.viewmodel.TaskViewModel
 import com.example.kotlintodo_list.databinding.FragmentAddTaskBinding
+import com.example.kotlintodo_list.model.Task
 
 class AddTaskFragment : Fragment() {
-
     private lateinit var taskViewModel: TaskViewModel
     private lateinit var binding: FragmentAddTaskBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        taskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
+    ): View {
+        taskViewModel = ViewModelProvider(this)[TaskViewModel::class.java]
         binding = FragmentAddTaskBinding.inflate(inflater, container, false)
         binding.doneButton.setOnClickListener {
             insertDataToDatabase()

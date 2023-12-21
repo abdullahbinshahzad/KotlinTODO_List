@@ -1,4 +1,4 @@
-package com.example.kotlintodo_list.Model.data
+package com.example.kotlintodo_list.model
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -10,14 +10,14 @@ import androidx.room.Update
 
 @Dao
 interface TaskDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addTask(task: Task)
 
     @Update
-    suspend fun updateTask(task:Task)
+    suspend fun updateTask(task: Task)
 
     @Delete
-    suspend fun deleteTask(task:Task)
+    suspend fun deleteTask(task: Task)
 
     @Query("SELECT * FROM task_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<Task>>

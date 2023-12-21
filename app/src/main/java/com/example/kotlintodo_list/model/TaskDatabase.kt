@@ -1,11 +1,12 @@
-package com.example.kotlintodo_list.Model.data
+package com.example.kotlintodo_list.model
 
-import android.content.Context
+import android.app.Application
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+
 @Database(entities = [Task::class], version = 1, exportSchema = false)
-abstract class TaskDatabase : RoomDatabase() {
+abstract class TaskDatabase: RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
 
@@ -13,7 +14,7 @@ abstract class TaskDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: TaskDatabase? = null
 
-        fun getDatabase(context: Context): TaskDatabase {
+        fun getDatabase(context: Application): TaskDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance

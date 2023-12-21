@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.fragments.AddTaskFragment">
+    tools:context=".view.fragments.AddTaskFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,7 +18,8 @@
             android:fontFamily="@font/audiowide"
             android:text="@string/heading_text"
             android:textColor="@color/text_color"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+        />
 
         <ImageView
             android:id="@+id/doneButton"
@@ -37,7 +38,7 @@
             android:textColor="@color/text_color"
             android:textColorHint="@color/grey"
             android:textSize="22sp"
-            android:maxLines="1"
+            android:singleLine="true"
             android:padding="10dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/border"
