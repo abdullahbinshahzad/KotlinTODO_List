@@ -20,7 +20,7 @@ class UpdateTaskFragment : Fragment() {
     private lateinit var taskViewModel: TaskViewModel
     private lateinit var binding: FragmentUpdateTaskBinding
     private var taskId:String?=null
-    private var taskID:Int?=null
+    private var taskID:Int = 0
     private var taskName:String?= null
     private var taskDescription:String ?=null
 
@@ -38,9 +38,18 @@ class UpdateTaskFragment : Fragment() {
         Log.i("taskID", "onViewCreatedID: $taskID")
         taskName= arguments?.getString("title")
         taskDescription = arguments?.getString("description")
+        if (taskName.isNullOrBlank()) {
+            binding.UpdateTaskEditText.text = Editable.Factory.getInstance().newEditable("TASK NAME IS NULL OR EMPTY")
+            binding.UpdateDescriptionEditText.text=Editable.Factory.getInstance().newEditable(taskDescription)
+        }
+        else if (taskDescription.isNullOrBlank()){
+            binding.UpdateTaskEditText.text= Editable.Factory.getInstance().newEditable(taskName)
+            binding.UpdateDescriptionEditText.text= Editable.Factory.getInstance().newEditable("TASK DESCRIPTION IS NULL OR EMPTY")
+        }
+        else {
             binding.UpdateTaskEditText.text= Editable.Factory.getInstance().newEditable(taskName)
             binding.UpdateDescriptionEditText.text=Editable.Factory.getInstance().newEditable(taskDescription)
-
+        }
 
         Log.i("taskName", "onViewCreated: $taskName")
         Log.i("taskDescription", "onViewCreated: $taskDescription")
@@ -56,15 +65,15 @@ class UpdateTaskFragment : Fragment() {
         val task = binding.UpdateTaskEditText.text.toString()
         val description = binding.UpdateDescriptionEditText.text.toString()
 
-        Log.i("taskId", "check id: $id")
+        Log.i("taskName", "check id: $taskID")
         Log.i("taskName", "onViewCreated: $task")
         if (inputCheck(task, description)) {
             //create task object
-            val task = Task(id, task, description)
+            val task = Task(taskID, task, description)
             //update data to database
             taskViewModel.updateTask(task)
+            Log.i("taskName", "check id after: $taskID")
             Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
-            Log.i("taskName", "after toast: $task")
             findNavController().navigate(R.id.action_updateTaskFragment_to_mainFragment)
         }
     }

@@ -3,7 +3,6 @@ package com.example.kotlintodo_list.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.kotlintodo_list.model.Task
 import com.example.kotlintodo_list.model.TaskDatabase
