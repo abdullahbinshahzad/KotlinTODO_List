@@ -1,6 +1,6 @@
 package com.example.kotlintodo_list.model
 
-import android.app.Application
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -14,7 +14,7 @@ abstract class TaskDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: TaskDatabase? = null
 
-        fun getDatabase(context: Application): TaskDatabase {
+        fun getDatabase(context: Context): TaskDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
