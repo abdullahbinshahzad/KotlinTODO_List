@@ -13,7 +13,7 @@ import com.example.kotlintodo_list.R
 import com.example.kotlintodo_list.viewmodel.TaskViewModel
 import com.example.kotlintodo_list.databinding.FragmentMainBinding
 import com.example.kotlintodo_list.model.Task
-import com.example.kotlintodo_list.model.TaskAdapter
+import com.example.kotlintodo_list.TaskAdapter
 
 class MainFragment : Fragment(),ItemClickListener {
 

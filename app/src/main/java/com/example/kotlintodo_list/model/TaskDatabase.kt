@@ -5,8 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Task::class], version = 1, exportSchema = false)
-abstract class TaskDatabase: RoomDatabase() {
+@Database(entities = [Task::class], version = 1, exportSchema = false) //use to connect DATA class and DAO interface
+abstract class TaskDatabase: RoomDatabase() { //main access point to interact with database
 
     abstract fun taskDao(): TaskDao
 

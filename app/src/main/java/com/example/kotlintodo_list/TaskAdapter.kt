@@ -1,12 +1,12 @@
-package com.example.kotlintodo_list.model
+package com.example.kotlintodo_list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kotlintodo_list.ItemClickListener
 import com.example.kotlintodo_list.databinding.TaskCardTemplateBinding
+import com.example.kotlintodo_list.model.Task
 
 class TaskAdapter(private val itemClickListener: ItemClickListener) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(
     Comparator()
