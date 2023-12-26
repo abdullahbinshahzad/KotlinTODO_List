@@ -25,7 +25,7 @@ class MainFragment : Fragment(),ItemClickListener {
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
-        val adapter= TaskAdapter(this)
+        val adapter = TaskAdapter(this)
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
