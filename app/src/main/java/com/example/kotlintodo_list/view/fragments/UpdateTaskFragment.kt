@@ -31,7 +31,7 @@ class UpdateTaskFragment : Fragment() {
         binding = FragmentUpdateTaskBinding.inflate(inflater, container,false)
         taskViewModel = ViewModelProvider(this)[TaskViewModel::class.java]
 
-        taskId= arguments?.getString("id")
+        taskId= arguments?.getInt("id").toString()
         taskID= taskId!!.toInt()
         taskName= arguments?.getString("title")
         taskDescription = arguments?.getString("description")
